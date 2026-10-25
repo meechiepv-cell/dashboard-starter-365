@@ -1,0 +1,14 @@
+{
+  "name": "dashboard-starter-365",
+  "version": "1.0.0",
+  "description": "Dashboard Starter 365 \u2014 Cyber Digits staged production build (seed data only, not deployed)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/server.test.js"
+  },
+  "engines": {
+    "node": "20.x"
+  },
+  "license": "MIT"
+}
