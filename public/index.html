@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Starter 365 — Cyber Digits</title><link rel="stylesheet" href="styles.css"></head>
+<body><div class="banner">STAGED PRODUCTION BUILD — NOT DEPLOYED — SEED DATA ONLY</div>
+<header><h1>Dashboard Starter 365</h1><p>Prebuilt dashboard starting points that surface Microsoft 365 data for reporting.</p><p class="note">Templates rendered from DEMO data only — no Microsoft 365 data is read in v1. All data on this page is demo data. Nothing here connects to a live tenant, mailbox, or billing system.</p></header>
+<main><div class="card"><h2>Try it (demo)</h2><label>Template</label><select id="tpl"><option>team-activity</option><option>adoption</option></select><button id="go">Run</button><button id="list">Load demo data</button></div>
+<div class="card"><h2>Result</h2><pre id="out">Press Run or Load demo data.</pre></div></main>
+<script>const out=document.getElementById('out');const show=x=>out.textContent=JSON.stringify(x,null,2);document.getElementById('go').onclick=async()=>{const r=await fetch('/api/dashboard?template='+tpl.value);show(await r.json());};const out=document.getElementById('out');const show=x=>out.textContent=JSON.stringify(x,null,2);document.getElementById('list').onclick=async()=>{const r=await fetch('/api/templates');show(await r.json());};</script></body></html>
