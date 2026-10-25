@@ -1,0 +1,22 @@
+# TEMPLATE ONLY — not connected to any repository or Azure resource.
+# Replace <APP-NAME> and <SECRET> before use, and only after the owner
+# answers the deployment-target spec question in README.md.
+name: Deploy dashboard-starter-365 (template)
+
+on:
+  workflow_dispatch: # manual only — never auto-deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm test
+      - uses: azure/webapps-deploy@v3
+        with:
+          app-name: cyberdigits-dashboard-starter-365
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: .
